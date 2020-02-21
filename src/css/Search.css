@@ -1,0 +1,19 @@
+#search-container input {
+    border-radius: .25rem;
+    padding: .375rem .75rem;
+    border: 1px solid gray;
+    margin-right: 1rem;
+    margin-left: 0.5rem;
+}
+
+#title-search {
+    width: 20rem;
+}
+
+#year-search {
+    width: 5rem;
+}
+
+.search-label {
+    font-size: 1.5rem;
+}

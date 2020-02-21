@@ -1,0 +1,15 @@
+.app-logo {
+    height: 3rem;
+    pointer-events: none;
+}
+
+.app-header {
+    background-color: #282c34;
+    min-height: 3rem;
+    display: flex;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+.header-option {
+    margin: 0 .5rem;
+}
