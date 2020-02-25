@@ -1,0 +1,44 @@
+.media-item-container {
+    margin: 1rem 10%;
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    background-color: #282c34;
+    border-radius: 1rem;
+    color: #007bff;
+}
+
+.media-title-and-save {
+    display: flex;
+    justify-content: space-between;
+}
+
+.media-item-save {
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.media-item-watch {
+    height: 2rem;
+    cursor: pointer;
+}
+
+.media-item-poster {
+    width: 10rem;
+}
+
+.media-item-info {
+    margin-left: 1.5rem;
+    width: 100%;
+    text-align: start;
+}
+
+.media-item-more-info {
+    background-color: #2f61c4;
+}
+
+@media(max-width: 680px) {
+    .media-item-container {
+        margin: 1rem 2%;
+    }
+}

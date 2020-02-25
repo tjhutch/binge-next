@@ -6,6 +6,19 @@
     margin-left: 0.5rem;
 }
 
+#search-container input[type=radio] {
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+}
+
+.field-group.radio-buttons {
+    display: block;
+}
+
+.field-group {
+    display: inline-block;
+}
+
 #title-search {
     width: 20rem;
 }
@@ -16,4 +29,23 @@
 
 .search-label {
     font-size: 1.5rem;
+}
+
+li {
+    list-style-type: none;
+}
+
+#pagination-container {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.arrow-icon {
+    height: 2rem
+}
+
+@media(max-width: 680px) {
+    .field-group {
+        display: block;
+    }
 }

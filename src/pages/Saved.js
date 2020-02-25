@@ -1,11 +1,26 @@
-import React from 'react';
-import '../css/Search.css';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import StatefulSearchResults from '../containers/StatefulSearchResults';
+import '../css/Saved.css';
 
-const Saved = () => (
-  <div className='home-container'>
-    <h1>This is the saved items page</h1>
-    <p>a list of saved items will go here</p>
-  </div>
-);
+class Saved extends Component {
+  // constructor(props) {
+  //   super(props);
+  // }
+  render() {
+    return (
+      <div className='saved-container'>
+        <StatefulSearchResults items={this.props.items.filter(item => !item.watched)} title='Saved'/>
+        <StatefulSearchResults items={this.props.items.filter(item => item.watched)} title='Watched'/>
+      </div>
+    )
+  }
+}
 
-export default Saved;
+function mapStateToProps(state) {
+  return {
+    items: state.saved,
+  }
+}
+
+export default connect(mapStateToProps)(Saved);
