@@ -11,6 +11,22 @@
     margin-right: 0.5rem;
 }
 
+.pagination-pages {
+    font-size: 16px;
+    display: inline-block;
+}
+
+.pagination-pages > div {
+    margin: 0 3px;
+    display: inline-block;
+    cursor: pointer;
+ }
+
+.current-page {
+    margin: 0 7px;
+    display: inline-block;
+}
+
 .field-group.radio-buttons {
     display: block;
 }
@@ -35,13 +51,15 @@ li {
     list-style-type: none;
 }
 
-#pagination-container {
+#pagination-display {
     font-size: 2rem;
     margin-bottom: 1rem;
+    display: inline-block;
 }
 
 .arrow-icon {
-    height: 2rem
+    height: 2rem;
+    cursor: pointer;
 }
 
 @media(max-width: 680px) {

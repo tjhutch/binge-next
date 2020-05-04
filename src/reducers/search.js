@@ -22,6 +22,10 @@ const search = (state = { title: '', year: '', type: '', page: 1 }, action) => {
       return Object.assign({}, state, {
         page: state.page - 1,
       });
+    case constants.SEARCH_SPECIFIC_PAGE:
+      return Object.assign({}, state, {
+        page: action.page,
+      });
     case constants.SEARCH_RESET_PAGE:
       return Object.assign({}, state, {
         page: 1,

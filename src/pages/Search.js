@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import StatefulSearchResults from '../containers/StatefulSearchResults';
-import { searchMedia,
+import Pagination from '../components/Pagination';
+import {
+  searchMedia,
   updateSearchYear,
   updateSearchTitle,
   updateSearchType,
   searchNextPage,
   searchPreviousPage,
-  searchResetPage,
+  searchResetPage, searchSpecificPage,
 } from '../actions';
 import constants from '../constants';
-import left from '../icons/arrow-left-short.svg';
-import right from '../icons/arrow-right-short.svg';
 import '../css/Search.css';
 
 class Search extends Component {
@@ -44,6 +44,11 @@ class Search extends Component {
       // enter was pressed
       this.handleSearch(e);
     }
+  }
+  specificPage(i) {
+    const { dispatch, title, year, type } = this.props;
+    dispatch(searchSpecificPage(i));
+    dispatch(searchMedia({ title, year, type, page: i }));
   }
   nextPage(e) {
     e.preventDefault();
@@ -87,20 +92,12 @@ class Search extends Component {
           </div>
         </div>
         <StatefulSearchResults items={this.props.items}/>
-        {this.props.items.length ?
-          <p> showing {((this.props.page - 1) * 10) + 1} through {this.props.page * 10} of {10 * this.props.pages} entries</p>
-          : ''
-        }
-        {this.props.pages > 1 ?
-          <div id='pagination-container'>
-            {this.props.page > 1 ?
-              <img src={left} className='arrow-icon' alt='go to previous page' onClick={this.previousPage.bind(this)}/> : ''}
-            {this.props.page}
-            {this.props.page < this.props.pages ?
-              <img src={right} className='arrow-icon' alt='go to next page' onClick={this.nextPage.bind(this)}/> : ''}
-          </div>
-          : ''
-        }
+        <Pagination page={this.props.page}
+                    pages={this.props.pages}
+                    items={this.props.items}
+                    nextPage={this.nextPage.bind(this)}
+                    previousPage={this.previousPage.bind(this)}
+                    specificPage={this.specificPage.bind(this)}/>
     </div>
     )
   }

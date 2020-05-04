@@ -75,6 +75,13 @@ const searchResults = (
       return Object.assign({}, state, {
         page: state.page - 1,
       });
+    case constants.SEARCH_SPECIFIC_PAGE:
+      if (action.page <= 1 || state.maxPages >= action.page) {
+        return state;
+      }
+      return Object.assign({}, state, {
+        page: action.page,
+      });
     default:
       return state
   }

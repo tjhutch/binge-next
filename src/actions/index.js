@@ -55,6 +55,11 @@ export const searchResetPage = () => ({
   type: constants.SEARCH_RESET_PAGE,
 });
 
+export const searchSpecificPage = (page) => ({
+  type: constants.SEARCH_SPECIFIC_PAGE,
+  page,
+});
+
 export const searchNextPage = () => ({
   type: constants.SEARCH_NEXT_PAGE,
 });
