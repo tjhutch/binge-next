@@ -87,11 +87,17 @@ class Search extends Component {
           </div>
         </div>
         <StatefulSearchResults items={this.props.items}/>
+        {this.props.items.length ?
+          <p> showing {((this.props.page - 1) * 10) + 1} through {this.props.page * 10} of {10 * this.props.pages} entries</p>
+          : ''
+        }
         {this.props.pages > 1 ?
           <div id='pagination-container'>
-            <img src={left} className='arrow-icon' alt='go to previous page' onClick={this.previousPage.bind(this)}/>
+            {this.props.page > 1 ?
+              <img src={left} className='arrow-icon' alt='go to previous page' onClick={this.previousPage.bind(this)}/> : ''}
             {this.props.page}
-            <img src={right} className='arrow-icon' alt='go to next page' onClick={this.nextPage.bind(this)}/>
+            {this.props.page < this.props.pages ?
+              <img src={right} className='arrow-icon' alt='go to next page' onClick={this.nextPage.bind(this)}/> : ''}
           </div>
           : ''
         }

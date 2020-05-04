@@ -25,8 +25,12 @@ const MediaItem = ({ info, onSave, onWatched, onMoreInfo }) => (
       </div>
       {info.error ? <div className='error'>There was an error retrieving more info. Please try again.</div> : '' }
       {info.moreInfo ?
-        <div className='more-info'><p>{info.moreInfo.Rated} | {info.moreInfo.Runtime} | {info.moreInfo.Genre} | {info.moreInfo.Director}</p>
-          <p>{info.moreInfo.Plot}</p></div>
+        <div className='more-info'>
+          <p>
+            {info.moreInfo.Rated} | {info.moreInfo.Runtime} | {info.moreInfo.Genre} | {info.moreInfo.Director}
+          </p>
+          <p>{info.moreInfo.Plot}</p>
+        </div>
         :
         <button className='media-item-more-info' onClick={onMoreInfo}>load more info...</button>
       }
