@@ -17,6 +17,13 @@ import '../css/Search.css';
 class Search extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
+    fetch(`/api/greeting`)
+        .then(response => response.json())
+        .then(state => {
+          console.log(state);
+          this.setState(state);
+        });
     this.updateType = this.updateType.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
@@ -70,6 +77,7 @@ class Search extends Component {
       <div className='home-container'>
         <h1>Binge Next</h1>
         <p>Find your next binge session</p>
+        <p>API response: {this.state.greeting}</p>
         <div id='search-container'>
           <div className='field-group'>
             <label htmlFor='title-search' className='search-label'>Title:</label>
